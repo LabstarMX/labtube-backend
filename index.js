@@ -1,9 +1,23 @@
 const express = require('express')
 const ytdl = require('ytdl-core')
-var cors = require('cors');
+const cors = require('cors');
 const app = express()
 
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: 'https://labtube.netlify.app'
+}));
+
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "https://labtube.netlify.app");
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// })
+
+
+// https://labtube.netlify.app
 
 app.get('/download', async (req, res) => {
     try {
